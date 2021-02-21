@@ -1,4 +1,4 @@
-package com.debanshu777.newsapp
+package com.debanshu777.newsapp.models
 
 data class Source(
     val id: Any,
