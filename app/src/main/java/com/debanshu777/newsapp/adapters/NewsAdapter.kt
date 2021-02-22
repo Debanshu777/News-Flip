@@ -25,7 +25,7 @@ class NewsAdapter:RecyclerView.Adapter<NewsAdapter.ArticleVieHolder>(){
 
     }
 
-    val differ=AsyncListDiffer(this,differCallback)
+    private val differ=AsyncListDiffer(this,differCallback)
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ArticleVieHolder {
         return ArticleVieHolder(
             LayoutInflater.from(parent.context).inflate(
@@ -56,7 +56,7 @@ class NewsAdapter:RecyclerView.Adapter<NewsAdapter.ArticleVieHolder>(){
 
     private var onItemClickListener:((Article)->Unit)?=null
 
-    fun setOnItemClickListener(listener:(Article)->Unit){
+    private fun setOnItemClickListener(listener:(Article)->Unit){
         onItemClickListener=listener
     }
 }
