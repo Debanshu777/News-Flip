@@ -25,7 +25,7 @@ class NewsAdapter:RecyclerView.Adapter<NewsAdapter.ArticleVieHolder>(){
 
     }
 
-    private val differ=AsyncListDiffer(this,differCallback)
+    val differ=AsyncListDiffer(this,differCallback)
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ArticleVieHolder {
         return ArticleVieHolder(
             LayoutInflater.from(parent.context).inflate(
