@@ -8,8 +8,10 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.debanshu777.newsapp.R
 import com.debanshu777.newsapp.adapters.NewsAdapter
 import com.debanshu777.newsapp.ui.NewsActivity
@@ -91,8 +93,8 @@ class BreakingNewsFragment:Fragment(R.layout.fragment_breaking_news){
         override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
             super.onScrolled(recyclerView, dx, dy)
 
-            val layoutManager=recyclerView.layoutManager as LinearLayoutManager
-            val firstVisibleItemPosition =layoutManager.findFirstVisibleItemPosition()
+            val layoutManager=recyclerView.layoutManager as StaggeredGridLayoutManager
+            val firstVisibleItemPosition =layoutManager.findFirstVisibleItemPositions(null)[0]
             val visibleItemCount=layoutManager.childCount
             val totalItemCount=layoutManager.itemCount
 
@@ -112,7 +114,7 @@ class BreakingNewsFragment:Fragment(R.layout.fragment_breaking_news){
         newsAdapter = NewsAdapter()
         rvBreakingNews.apply {
             adapter = newsAdapter
-            layoutManager = LinearLayoutManager(activity)
+            layoutManager = StaggeredGridLayoutManager(2,LinearLayoutManager.VERTICAL)
             addOnScrollListener(this@BreakingNewsFragment.scrollListener)
         }
     }
