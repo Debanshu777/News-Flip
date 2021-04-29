@@ -3,10 +3,11 @@
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/dark_primary_dark_color</item>
+        <item name="colorPrimaryDark">@null</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="text_color">@color/dark_text_color</item>
         <item name="background_color">@color/dark_bg_color</item>
         <item name="android:textColorSecondary">@color/dark_icon_tint_color</item>
+
     </style>
 </resources>
