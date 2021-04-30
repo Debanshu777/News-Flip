@@ -8,6 +8,9 @@
         <item name="text_color">@color/dark_text_color</item>
         <item name="background_color">@color/dark_bg_color</item>
         <item name="android:textColorSecondary">@color/dark_icon_tint_color</item>
-
+    </style>
+    <style name="splashScreenTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="android:windowBackground">@drawable/splash_layer</item>
+        <item name="android:statusBarColor">@color/dark_bg_color</item>
     </style>
 </resources>

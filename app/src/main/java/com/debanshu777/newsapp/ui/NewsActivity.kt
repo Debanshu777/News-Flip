@@ -15,6 +15,7 @@ class NewsActivity : AppCompatActivity() {
     lateinit var viewModel: NewsViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setTheme(R.style.AppTheme)
         setContentView(R.layout.activity_news)
 
         val newsRepository=NewsRepository(ArticleDatabase(this))

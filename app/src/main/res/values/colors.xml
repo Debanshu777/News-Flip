@@ -7,7 +7,7 @@
     <!--    // dark theme colors-->
     <color name="dark_primary_color">#141414</color>
     <color name="dark_primary_dark_color">#141414</color>
-    <color name="dark_bg_color">#141414</color>
+    <color name="dark_bg_color">#181818</color>
     <color name="dark_text_color">#fafafa</color>
     <color name="dark_icon_tint_color">#A2A2A2</color>
 

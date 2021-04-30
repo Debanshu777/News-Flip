@@ -93,8 +93,8 @@ class BreakingNewsFragment:Fragment(R.layout.fragment_breaking_news){
         override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
             super.onScrolled(recyclerView, dx, dy)
 
-            val layoutManager=recyclerView.layoutManager as StaggeredGridLayoutManager
-            val firstVisibleItemPosition =layoutManager.findFirstVisibleItemPositions(null)[0]
+            val layoutManager=recyclerView.layoutManager as LinearLayoutManager
+            val firstVisibleItemPosition =layoutManager.findFirstVisibleItemPosition()
             val visibleItemCount=layoutManager.childCount
             val totalItemCount=layoutManager.itemCount
 
@@ -114,7 +114,7 @@ class BreakingNewsFragment:Fragment(R.layout.fragment_breaking_news){
         newsAdapter = NewsAdapter()
         rvBreakingNews.apply {
             adapter = newsAdapter
-            layoutManager = StaggeredGridLayoutManager(2,LinearLayoutManager.VERTICAL)
+            layoutManager =  LinearLayoutManager(activity)
             addOnScrollListener(this@BreakingNewsFragment.scrollListener)
         }
     }

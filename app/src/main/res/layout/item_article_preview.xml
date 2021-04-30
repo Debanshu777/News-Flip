@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView
-    android:layout_height="wrap_content"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     android:layout_margin="5dp"
+    app:cardBackgroundColor="@color/dark_bg_color"
     app:cardCornerRadius="10dp"
-    android:background="?attr/background_color"
-    android:layout_width="match_parent">
+    app:cardElevation="10dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -24,20 +24,15 @@
             <ImageView
                 android:id="@+id/ivArticleImage"
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
+                android:layout_height="150dp"
                 android:scaleType="centerCrop" />
 
             <ImageView
+                android:id="@+id/bottom_gradient"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="100dp"
                 android:layout_gravity="bottom"
                 app:srcCompat="@drawable/gradient_bottom" />
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_gravity="top"
-                app:srcCompat="@drawable/gradient_top" />
         </FrameLayout>
 
         <TextView
@@ -45,7 +40,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            android:paddingEnd="5dp"
+            android:layout_marginEnd="5dp"
+            android:background="@drawable/rounded_corner"
             android:text="SOURCE"
             android:textColor="@android:color/white"
             android:textSize="10sp"
@@ -58,27 +54,28 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
             android:ellipsize="end"
-            android:maxLines="1"
-            android:paddingBottom="15dp"
+            android:lineSpacingExtra="1dp"
+            android:maxLines="4"
+            android:paddingBottom="5dp"
             android:text="TITLE"
             android:textColor="@android:color/white"
-            android:textSize="14sp"
+            android:textSize="15sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@id/frame"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/frame" />
 
         <TextView
             android:id="@+id/tvDescription"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
             android:ellipsize="end"
-            android:maxLines="2"
-            android:padding="10dp"
+            android:padding="7dp"
             android:text="DESCRIPTION"
-            android:textColor="@android:color/white"
-            android:textSize="13sp"
+            android:textColor="#BFBFBF"
+            android:textSize="12sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvTitle" />
@@ -87,14 +84,15 @@
             android:id="@+id/tvPublishedAt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="2dp"
+            android:background="@color/dark_bg_color"
             android:paddingEnd="5dp"
+            android:paddingBottom="5dp"
             android:text="PUBLISHED AT"
-            android:textColor="@android:color/black"
+            android:textColor="#BFBFBF"
             android:textSize="10sp"
-            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvSource" />
+            app:layout_constraintTop_toBottomOf="@id/tvDescription" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>
