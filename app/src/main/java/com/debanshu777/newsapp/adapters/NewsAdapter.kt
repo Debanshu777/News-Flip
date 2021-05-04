@@ -7,6 +7,8 @@ import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
+import com.bumptech.glide.request.RequestOptions
 import com.debanshu777.newsapp.R
 import com.debanshu777.newsapp.models.Article
 import kotlinx.android.synthetic.main.item_article_preview.view.*
@@ -46,7 +48,12 @@ class NewsAdapter : RecyclerView.Adapter<NewsAdapter.ArticleViewHolder>() {
     override fun onBindViewHolder(holder: ArticleViewHolder, position: Int) {
         val article = differ.currentList[position]
         holder.itemView.apply {
-            Glide.with(this).load(article.urlToImage).into(ivArticleImage)
+            Glide.with(this).load(article.urlToImage)
+                .centerInside()
+                .apply(
+                RequestOptions()
+                .placeholder(R.drawable.placeholder_image_logo).diskCacheStrategy(DiskCacheStrategy.ALL)
+            ).into(ivArticleImage)
             tvSource.text = article.source?.name
             tvTitle.text = article.title
             tvDescription.text = article.description

@@ -73,6 +73,7 @@
             android:layout_height="wrap_content"
             android:ellipsize="end"
             android:padding="7dp"
+            android:maxLines="3"
             android:text="DESCRIPTION"
             android:textColor="#BFBFBF"
             android:textSize="12sp"

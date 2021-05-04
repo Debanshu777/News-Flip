@@ -14,6 +14,8 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.debanshu777.newsapp.R
 import com.debanshu777.newsapp.adapters.NewsAdapter
+import com.debanshu777.newsapp.adapters.OptionsAdapter
+import com.debanshu777.newsapp.models.Option
 import com.debanshu777.newsapp.ui.NewsActivity
 import com.debanshu777.newsapp.ui.NewsViewModel
 import com.debanshu777.newsapp.util.Constant.Companion.QUERY_PAGE_SIZE
@@ -24,7 +26,8 @@ class BreakingNewsFragment:Fragment(R.layout.fragment_breaking_news){
 
     lateinit var viewModel: NewsViewModel
     lateinit var newsAdapter: NewsAdapter
-
+    private lateinit var optionAdapter: OptionsAdapter
+    lateinit var list:ArrayList<Option>
     val TAG = "BreakingNewsFragment"
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -82,7 +85,7 @@ class BreakingNewsFragment:Fragment(R.layout.fragment_breaking_news){
     var isLastPage=false
     var isScrolling=false
 
-    val scrollListener = object : RecyclerView.OnScrollListener(){
+    private val scrollListener = object : RecyclerView.OnScrollListener(){
         override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
             super.onScrollStateChanged(recyclerView, newState)
             if (newState == AbsListView.OnScrollListener.SCROLL_STATE_TOUCH_SCROLL){
@@ -110,8 +113,23 @@ class BreakingNewsFragment:Fragment(R.layout.fragment_breaking_news){
             }
         }
     }
+    private fun data():ArrayList<Option>{
+        list=ArrayList()
+        list.add(Option("url","Economics"))
+        list.add(Option("url","Business"))
+        list.add(Option("url","Country"))
+        list.add(Option("url","Technology"))
+        list.add(Option("url","Country"))
+        Log.e("Tag",list.size.toString())
+        return list
+    }
     private fun setupRecyclerView() {
         newsAdapter = NewsAdapter()
+        optionAdapter= OptionsAdapter(data())
+        rvOptions.apply {
+            adapter=optionAdapter
+            layoutManager =  LinearLayoutManager(activity,LinearLayoutManager.HORIZONTAL,false)
+        }
         rvBreakingNews.apply {
             adapter = newsAdapter
             layoutManager =  LinearLayoutManager(activity)
