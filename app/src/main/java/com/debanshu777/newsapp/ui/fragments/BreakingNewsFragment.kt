@@ -7,6 +7,7 @@ import android.widget.AbsListView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -33,6 +34,8 @@ class BreakingNewsFragment:Fragment(R.layout.fragment_breaking_news){
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel = (activity as NewsActivity).viewModel
+
+        findNavController().navigate(R.id.action_breakingNewsFragment_to_viewPagerFragment)
         setupRecyclerView()
 
         newsAdapter.setOnItemClickListener {
