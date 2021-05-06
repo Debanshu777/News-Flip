@@ -90,4 +90,7 @@ dependencies {
 
     // Preferences DataStore
     implementation "androidx.datastore:datastore-preferences:1.0.0-beta01"
+
+    //consume library for liquid swipe
+    implementation 'com.cuberto:liquid-swipe:1.0.0'
 }

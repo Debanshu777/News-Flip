@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import com.debanshu777.newsapp.R
 import com.debanshu777.newsapp.util.UserPreferences
 import kotlinx.android.synthetic.main.fragment_onboarding3.*
@@ -40,6 +41,9 @@ class OnboardingFragment3 : Fragment() {
                 }
             }
         }
+            view.floatingActionForward.setOnClickListener {
+                findNavController().navigate(R.id.action_viewPagerFragment_to_breakingNewsFragment)
+            }
 
 
         return view

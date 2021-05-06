@@ -2,6 +2,7 @@ package com.debanshu777.newsapp.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
@@ -25,5 +26,12 @@ class NewsActivity : AppCompatActivity() {
         viewModel=ViewModelProvider(this,viewModelProviderFactory).get(NewsViewModel::class.java)
 
         bottomNavigationView.setupWithNavController(newsNaveHostFragment.findNavController())
+
+    }
+    fun hideBottomNav(){
+        bottomNavigationView.visibility= View.GONE
+    }
+    fun showBottomNav(){
+        bottomNavigationView.visibility= View.VISIBLE
     }
 }

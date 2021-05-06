@@ -64,6 +64,8 @@
         tools:layout="@layout/fragment_view_pager" >
         <action
             android:id="@+id/action_viewPagerFragment_to_breakingNewsFragment"
-            app:destination="@id/breakingNewsFragment" />
+            app:destination="@id/breakingNewsFragment"
+            app:popUpTo="@id/viewPagerFragment"
+            app:popUpToInclusive="true" />
     </fragment>
 </navigation>

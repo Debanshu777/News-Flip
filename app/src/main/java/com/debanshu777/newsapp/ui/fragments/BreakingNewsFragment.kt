@@ -2,11 +2,14 @@ package com.debanshu777.newsapp.ui.fragments
 
 import android.os.Bundle
 import android.util.Log
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import android.widget.AbsListView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
@@ -21,7 +24,13 @@ import com.debanshu777.newsapp.ui.NewsActivity
 import com.debanshu777.newsapp.ui.NewsViewModel
 import com.debanshu777.newsapp.util.Constant.Companion.QUERY_PAGE_SIZE
 import com.debanshu777.newsapp.util.Resource
+import com.debanshu777.newsapp.util.UserPreferences
 import kotlinx.android.synthetic.main.fragment_breaking_news.*
+import kotlinx.android.synthetic.main.fragment_onboarding3.*
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class BreakingNewsFragment:Fragment(R.layout.fragment_breaking_news){
 
@@ -29,15 +38,24 @@ class BreakingNewsFragment:Fragment(R.layout.fragment_breaking_news){
     lateinit var newsAdapter: NewsAdapter
     private lateinit var optionAdapter: OptionsAdapter
     lateinit var list:ArrayList<Option>
-    val TAG = "BreakingNewsFragment"
+    private val TAG = "BreakingNewsFragment"
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        lifecycleScope.launch {
+            val value = UserPreferences.getValue(requireContext(), "testKey", default = "123")
+            Log.e("TAG", "Here$value")
+            if(value=="123"){
+                (activity as NewsActivity).hideBottomNav()
+                findNavController().navigate(R.id.action_breakingNewsFragment_to_viewPagerFragment)
+            }else {
+                (activity as NewsActivity).showBottomNav()
+                nameSet.text = value
+            }
+        }
         super.onViewCreated(view, savedInstanceState)
         viewModel = (activity as NewsActivity).viewModel
-
-        findNavController().navigate(R.id.action_breakingNewsFragment_to_viewPagerFragment)
         setupRecyclerView()
-
         newsAdapter.setOnItemClickListener {
             val bundle = Bundle().apply {
                 putSerializable("article", it)
