@@ -27,7 +27,8 @@ class ViewPagerFragment : Fragment() {
         )
 
         val adapter=ViewPagerAdapter(fragmentList,requireActivity().supportFragmentManager,lifecycle)
-        view.viewPager.adapter=adapter
+        val adapter1=LiquidSwipePageAdapter(requireActivity().supportFragmentManager,1)
+        view.viewPager.adapter=adapter1
         return view
     }
 

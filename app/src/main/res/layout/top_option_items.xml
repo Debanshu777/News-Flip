@@ -5,37 +5,42 @@
     android:layout_height="wrap_content"
     app:cardBackgroundColor="@color/dark_bg_color"
     app:cardCornerRadius="10dp"
-    android:layout_margin="2.5dp"
+    android:layout_marginEnd="10dp"
     app:cardElevation="10dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="10sp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
+        android:layout_width="110dp"
+        android:layout_height="75dp"
+        android:layout_gravity="center"
         android:background="?attr/background_color">
 
-        <ImageView
-            android:id="@+id/imageView"
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="20dp"
+            android:layout_height="match_parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
+            app:layout_constraintTop_toTopOf="parent">
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/flat_gradient"
+                />
+        </FrameLayout>
         <TextView
             android:id="@+id/tvOption"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:ellipsize="end"
             android:gravity="center"
-            android:lineSpacingExtra="1dp"
-            android:maxLines="4"
             android:text="TITLE"
             android:textColor="@android:color/white"
             android:textSize="15sp"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

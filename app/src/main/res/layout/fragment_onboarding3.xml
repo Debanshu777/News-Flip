@@ -4,56 +4,114 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/dark_bg_color"
     tools:context=".onboarding.screens.OnboardingFragment3">
 
-    <!-- TODO: Update blank fragment layout -->
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/lottieAnimationView2"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.07"
+        app:lottie_autoPlay="true"
+        app:lottie_fileName="onboarding3.json"
+        app:lottie_loop="true" />
+
+    <TextView
+        android:id="@+id/aboveText"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:lineSpacingExtra="4sp"
+        android:text="Enter your name for some personalization"
+        android:textColor="@android:color/white"
+        android:textSize="14sp"
+        android:gravity="center"
+        android:padding="10dp"
+        app:layout_constraintBottom_toTopOf="@id/editText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lottieAnimationView2"
+        app:layout_constraintVertical_bias="0.2" />
+    <TextView
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:text="*We are not tracking any device data or personal information*"
+        android:textColor="#D8D8D8"
+        android:textSize="9sp"
+        android:gravity="center"
+        app:layout_constraintBottom_toTopOf="@id/editText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/aboveText"
+        app:layout_constraintVertical_bias="0" />
+
     <EditText
         android:id="@+id/editText"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_margin="20dp"
+        android:hint="Enter your name"
+        android:padding="10dp"
         android:textColor="@android:color/white"
+        android:textColorHint="#636262"
+        android:background="@drawable/rounded_corner"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.1" />
+        app:layout_constraintTop_toBottomOf="@id/lottieAnimationView2"
+        app:layout_constraintVertical_bias="0.15" />
 
     <Button
         android:id="@+id/enter"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Enter"
+        android:text="Get Started"
         android:layout_margin="20dp"
+        android:padding="10dp"
+        android:textSize="18sp"
+        android:background="@color/colorPrimary"
         app:layout_constraintVertical_bias="0.1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editText" />
 
-    <TextView
-        android:id="@+id/textView"
-        android:textColor="@android:color/white"
-        android:layout_margin="20dp"
-        android:textSize="18sp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintVertical_bias="0.1"
+
+    <ImageView
+        android:id="@+id/indicator1"
+        android:src="@drawable/unfilled_white_circle"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        app:layout_constraintHorizontal_bias="0.1"
+        app:layout_constraintVertical_bias="0.95"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/enter"/>
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatingActionForward"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_arrow_forward"
+        app:layout_constraintTop_toTopOf="parent" />
+    <ImageView
+        android:id="@+id/indicator2"
+        android:src="@drawable/unfilled_white_circle"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        app:layout_constraintHorizontal_bias="0.01"
+        app:layout_constraintVertical_bias="0.95"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/textView"
-        app:layout_constraintHorizontal_bias="0.9"
-        app:layout_constraintStart_toStartOf="@+id/textView"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.9" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/indicator1"
+        app:layout_constraintTop_toTopOf="parent" />
+    <ImageView
+        android:id="@+id/indicator3"
+        android:src="@drawable/filled_white_circle"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        app:layout_constraintHorizontal_bias="0.01"
+        app:layout_constraintVertical_bias="0.95"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/indicator2"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

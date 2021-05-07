@@ -1,15 +1,118 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/white"
+    android:background="@color/dark_bg_color"
     tools:context=".onboarding.screens.OnboardingFragment1">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
 
-</FrameLayout>
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/lottieAnimationView2"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.15"
+        app:lottie_fileName="onboarding1.json" />
+
+    <TextView
+        android:id="@+id/topText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="We do things"
+        android:textSize="30sp"
+        android:textColor="#D8D8D8"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.14"
+        app:layout_constraintVertical_bias="0"
+        app:layout_constraintTop_toBottomOf="@+id/lottieAnimationView2" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Differently"
+        android:textSize="45sp"
+        android:textStyle="bold"
+        android:textColor="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.17"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/topText"
+        app:layout_constraintVertical_bias="0" />
+
+    <TextView
+        android:id="@+id/quotes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintVertical_bias="0"
+        app:layout_constraintHorizontal_bias="0.085"
+        android:lineSpacingExtra="4sp"
+        android:textSize="40sp"
+        android:textColor="#D8D8D8"
+        android:text="❝"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <TextView
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintVertical_bias="0.2"
+        app:layout_constraintHorizontal_bias="0"
+        android:lineSpacingExtra="4sp"
+        android:textColor="#D8D8D8"
+        app:layout_constraintStart_toEndOf="@id/quotes"
+        android:text="It's amazing that the amount of news that happens in the world every day always just exactly fits the newspaper. \nJerry Seinfeld"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <ImageView
+        android:id="@+id/indicator1"
+        android:src="@drawable/filled_white_circle"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        app:layout_constraintHorizontal_bias="0.1"
+        app:layout_constraintVertical_bias="0.95"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <ImageView
+        android:id="@+id/indicator2"
+        android:src="@drawable/unfilled_white_circle"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        app:layout_constraintHorizontal_bias="0.01"
+        app:layout_constraintVertical_bias="0.95"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/indicator1"
+        app:layout_constraintTop_toTopOf="parent" />
+    <ImageView
+        android:id="@+id/indicator3"
+        android:src="@drawable/unfilled_white_circle"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        app:layout_constraintHorizontal_bias="0.01"
+        app:layout_constraintVertical_bias="0.95"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/indicator2"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

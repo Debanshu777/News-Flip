@@ -65,8 +65,12 @@ class BreakingNewsFragment:Fragment(R.layout.fragment_breaking_news){
                 bundle
             )
         }
+        optionAdapter.setOnItemClickListener {
+            viewModel.optionNews(it.title)
+            Log.e(TAG,it.title)
+        }
 
-        viewModel.breakingNews.observe(viewLifecycleOwner, Observer { response ->
+        viewModel.optionNews.observe(viewLifecycleOwner, Observer { response ->
             when(response) {
                 is Resource.Success -> {
                     hideProgressBar()
@@ -136,11 +140,12 @@ class BreakingNewsFragment:Fragment(R.layout.fragment_breaking_news){
     }
     private fun data():ArrayList<Option>{
         list=ArrayList()
-        list.add(Option("url","Economics"))
-        list.add(Option("url","Business"))
-        list.add(Option("url","Country"))
-        list.add(Option("url","Technology"))
-        list.add(Option("url","Country"))
+        list.add(Option("https://img.freepik.com/free-photo/business-people-shaking-hands-together_53876-20488.jpg?size=626&ext=jpg","Business"))
+        list.add(Option("https://www.asmibanquet.com/wp-content/uploads/2017/10/Entertainment.jpg","Entertainment"))
+        list.add(Option("https://images.everydayhealth.com/homepage/health-topics-2.jpg?sfvrsn=757370ae_2","Health"))
+        list.add(Option("https://thumbs-prod.si-cdn.com/s-jZTk0XtVmp-89MlOgFXqaAVe4=/fit-in/1600x0/https://public-media.si-cdn.com/filer/29/0f/290fb8c0-1872-46e5-8c12-235742905def/science_smithsonian_magazine_booklist_2019.png","Science"))
+        list.add(Option("https://mongooseagency.com/files/3415/9620/1413/Return_of_Sports.jpg","Sports"))
+        list.add(Option("https://www.universal-rights.org/wp-content/uploads/2019/09/30212411048_2a1d7200e2_z-1.jpg","Technology"))
         Log.e("Tag",list.size.toString())
         return list
     }

@@ -93,4 +93,7 @@ dependencies {
 
     //consume library for liquid swipe
     implementation 'com.cuberto:liquid-swipe:1.0.0'
+
+    //lottie animations
+    implementation 'com.airbnb.android:lottie:3.7.0'
 }

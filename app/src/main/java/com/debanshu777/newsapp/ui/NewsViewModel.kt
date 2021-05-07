@@ -33,8 +33,13 @@ class NewsViewModel(
     var searchNewsPage = 1
     var searchNewsResponse:NewsResponse?=null
 
+    val optionNews: MutableLiveData<Resource<NewsResponse>> = MutableLiveData()
+    var optionNewsPage = 1
+    var optionNewsResponse:NewsResponse?=null
+
     init {
         getBreakingNews("in")
+        optionNews("economics")
     }
 
     fun getBreakingNews(countryCode: String) = viewModelScope.launch {
@@ -43,6 +48,9 @@ class NewsViewModel(
 
     fun searchNews(searchQuery: String) = viewModelScope.launch {
        safeSearchNewsCalls(searchQuery)
+    }
+    fun optionNews(searchQuery: String) = viewModelScope.launch {
+        safeOptionNewsCalls(searchQuery)
     }
 
     private fun handleBreakingNewsResponse(response: Response<NewsResponse>): Resource<NewsResponse> {
@@ -79,6 +87,22 @@ class NewsViewModel(
         }
         return Resource.Error(response.message())
     }
+    private fun handleOptionNewsResponse(response: Response<NewsResponse>): Resource<NewsResponse> {
+        if (response.isSuccessful) {
+            response.body()?.let { resultResponse ->
+                optionNewsPage++
+                if(optionNewsResponse == null){
+                    optionNewsResponse=resultResponse
+                }else{
+                    val oldArticles=optionNewsResponse?.articles
+                    val newArticles=resultResponse.articles
+                    oldArticles?.addAll(newArticles)
+                }
+                return Resource.Success(resultResponse)
+            }
+        }
+        return Resource.Error(response.message())
+    }
 
     fun saveArticle(article: Article) = viewModelScope.launch {
         newsRepository.upsert(article)
@@ -102,6 +126,23 @@ class NewsViewModel(
             when(t){
                 is IOException->searchNews.postValue(Resource.Error("Network Error"))
                 else -> searchNews.postValue(Resource.Error("Conversion Error"))
+            }
+        }
+
+    }
+    private suspend fun safeOptionNewsCalls(searchQuery: String){
+        optionNews.postValue(Resource.Loading())
+        try{
+            if(hasInternetConnection()) {
+                val response = newsRepository.searchNews(searchQuery, searchNewsPage)
+                optionNews.postValue(handleOptionNewsResponse(response))
+            }else{
+                optionNews.postValue(Resource.Error("No Internet Connection"))
+            }
+        }catch(t:Throwable){
+            when(t){
+                is IOException->optionNews.postValue(Resource.Error("Network Error"))
+                else -> optionNews.postValue(Resource.Error("Conversion Error"))
             }
         }
 
