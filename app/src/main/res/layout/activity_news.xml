@@ -23,21 +23,22 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:defaultNavHost="true"
-            app:navGraph="@navigation/news_nav_graph"/>
+            app:navGraph="@navigation/news_nav_graph" />
 
 
     </FrameLayout>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigationView"
-        android:background="?attr/background_color"
         android:layout_width="match_parent"
         android:layout_height="56dp"
+        android:background="?attr/background_color"
+        app:itemIconTint="@drawable/bottom_nav_selector"
         app:labelVisibilityMode="unlabeled"
-        app:menu="@menu/bottom_navigation_menu"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/bottom_navigation_menu" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

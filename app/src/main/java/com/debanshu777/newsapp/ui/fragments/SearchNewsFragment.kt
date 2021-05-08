@@ -65,11 +65,17 @@ class SearchNewsFragment:Fragment(R.layout.fragment_search_news){
                 is Resource.Success -> {
                     hideProgressBar()
                     response.data?.let { newsResponse ->
-                        newsAdapter.differ.submitList(newsResponse.articles.toList())
-                        val totalPages = newsResponse.totalResults/ Constant.QUERY_PAGE_SIZE +2
-                        isLastPage= viewModel.searchNewsPage == totalPages
-                        if(isLastPage){
-                            rvBreakingNews.setPadding(0,0,0,0)
+                        if (newsResponse.articles.isNotEmpty()) {
+                            noSearchItemLayout.visibility = View.INVISIBLE
+                            newsAdapter.differ.submitList(newsResponse.articles.toList())
+                            val totalPages =
+                                newsResponse.totalResults / Constant.QUERY_PAGE_SIZE + 2
+                            isLastPage = viewModel.searchNewsPage == totalPages
+                            if (isLastPage) {
+                                rvOptionNews.setPadding(0, 0, 0, 0)
+                            }
+                        } else {
+                            noSearchItemLayout.visibility = View.VISIBLE
                         }
                     }
                 }

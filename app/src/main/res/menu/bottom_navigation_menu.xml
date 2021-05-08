@@ -3,15 +3,15 @@
 
     <item
         android:id="@+id/breakingNewsFragment"
-        android:icon="@drawable/ic_breaking_news"
+        android:icon="@drawable/ic_home"
         android:title="Breaking News" />
     <item
         android:id="@+id/savedNewsFragment"
-        android:icon="@drawable/ic_favorite"
+        android:icon="@drawable/ic_bookmarks"
         android:title="Saved News" />
     <item
         android:id="@+id/searchNewsFragment"
-        android:icon="@drawable/ic_all_news"
+        android:icon="@drawable/ic_search"
         android:title="Search News" />
 
 </menu>

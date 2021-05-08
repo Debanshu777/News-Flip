@@ -2,21 +2,17 @@ package com.debanshu777.newsapp.ui.fragments
 
 import android.os.Bundle
 import android.util.Log
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.widget.AbsListView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.debanshu777.newsapp.R
+import com.debanshu777.newsapp.adapters.BreakingNewsAdapter
 import com.debanshu777.newsapp.adapters.NewsAdapter
 import com.debanshu777.newsapp.adapters.OptionsAdapter
 import com.debanshu777.newsapp.models.Option
@@ -27,17 +23,15 @@ import com.debanshu777.newsapp.util.Resource
 import com.debanshu777.newsapp.util.UserPreferences
 import kotlinx.android.synthetic.main.fragment_breaking_news.*
 import kotlinx.android.synthetic.main.fragment_onboarding3.*
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 
 class BreakingNewsFragment:Fragment(R.layout.fragment_breaking_news){
 
     lateinit var viewModel: NewsViewModel
     lateinit var newsAdapter: NewsAdapter
     private lateinit var optionAdapter: OptionsAdapter
-    lateinit var list:ArrayList<Option>
+    private lateinit var breakingNewsAdapter: BreakingNewsAdapter
+    lateinit var list: ArrayList<Option>
     private val TAG = "BreakingNewsFragment"
 
 
@@ -50,7 +44,8 @@ class BreakingNewsFragment:Fragment(R.layout.fragment_breaking_news){
                 findNavController().navigate(R.id.action_breakingNewsFragment_to_viewPagerFragment)
             }else {
                 (activity as NewsActivity).showBottomNav()
-                nameSet.text = value
+                var name = "Hey, $value!"
+                nameSet.text = name
             }
         }
         super.onViewCreated(view, savedInstanceState)
@@ -65,13 +60,22 @@ class BreakingNewsFragment:Fragment(R.layout.fragment_breaking_news){
                 bundle
             )
         }
+        breakingNewsAdapter.setOnItemClickListener {
+            val bundle = Bundle().apply {
+                putSerializable("article", it)
+            }
+            findNavController().navigate(
+                R.id.action_breakingNewsFragment_to_articleFragment,
+                bundle
+            )
+        }
         optionAdapter.setOnItemClickListener {
             viewModel.optionNews(it.title)
-            Log.e(TAG,it.title)
+            Log.e(TAG, it.title)
         }
 
         viewModel.optionNews.observe(viewLifecycleOwner, Observer { response ->
-            when(response) {
+            when (response) {
                 is Resource.Success -> {
                     hideProgressBar()
                     response.data?.let { newsResponse ->
@@ -79,14 +83,41 @@ class BreakingNewsFragment:Fragment(R.layout.fragment_breaking_news){
                         val totalPages = newsResponse.totalResults/ QUERY_PAGE_SIZE+2
                         isLastPage= viewModel.breakingNewsPage == totalPages
                         if(isLastPage){
-                            rvBreakingNews.setPadding(0,0,0,0)
+                            rvOptionNews.setPadding(0, 0, 0, 0)
                         }
                     }
                 }
                 is Resource.Error -> {
                     hideProgressBar()
                     response.message?.let { message ->
-                        Toast.makeText(activity,"An error occured: $message",Toast.LENGTH_LONG).show()
+                        Toast.makeText(activity, "An error occured: $message", Toast.LENGTH_LONG)
+                            .show()
+                        Log.e(TAG, "An error occured: $message")
+                    }
+                }
+                is Resource.Loading -> {
+                    showProgressBar()
+                }
+            }
+        })
+        viewModel.breakingNews.observe(viewLifecycleOwner, Observer { response ->
+            when (response) {
+                is Resource.Success -> {
+                    hideProgressBar()
+                    response.data?.let { newsResponse ->
+                        breakingNewsAdapter.differ.submitList(newsResponse.articles.toList())
+                        val totalPages = newsResponse.totalResults / QUERY_PAGE_SIZE + 2
+                        isLastPage = viewModel.breakingNewsPage == totalPages
+                        if (isLastPage) {
+                            rvBreakingNews.setPadding(0, 0, 0, 0)
+                        }
+                    }
+                }
+                is Resource.Error -> {
+                    hideProgressBar()
+                    response.message?.let { message ->
+                        Toast.makeText(activity, "An error occured: $message", Toast.LENGTH_LONG)
+                            .show()
                         Log.e(TAG, "An error occured: $message")
                     }
                 }
@@ -151,14 +182,20 @@ class BreakingNewsFragment:Fragment(R.layout.fragment_breaking_news){
     }
     private fun setupRecyclerView() {
         newsAdapter = NewsAdapter()
-        optionAdapter= OptionsAdapter(data())
-        rvOptions.apply {
-            adapter=optionAdapter
-            layoutManager =  LinearLayoutManager(activity,LinearLayoutManager.HORIZONTAL,false)
-        }
+        breakingNewsAdapter = BreakingNewsAdapter()
+        optionAdapter = OptionsAdapter(data())
         rvBreakingNews.apply {
+            adapter = breakingNewsAdapter
+            layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
+            addOnScrollListener(this@BreakingNewsFragment.scrollListener)
+        }
+        rvOptions.apply {
+            adapter = optionAdapter
+            layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
+        }
+        rvOptionNews.apply {
             adapter = newsAdapter
-            layoutManager =  LinearLayoutManager(activity)
+            layoutManager = LinearLayoutManager(activity)
             addOnScrollListener(this@BreakingNewsFragment.scrollListener)
         }
     }

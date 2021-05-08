@@ -1,6 +1,7 @@
 package com.debanshu777.newsapp.ui.fragments
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -14,7 +15,6 @@ import com.debanshu777.newsapp.ui.NewsActivity
 import com.debanshu777.newsapp.ui.NewsViewModel
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.fragment_saved_news.*
-import kotlinx.android.synthetic.main.fragment_search_news.*
 
 class SaveNewsFragment:Fragment(R.layout.fragment_saved_news){
 
@@ -59,8 +59,15 @@ class SaveNewsFragment:Fragment(R.layout.fragment_saved_news){
             attachToRecyclerView(rvSavedNews)
         }
 
-        viewModel.getSavedNews().observe(viewLifecycleOwner, Observer {articles->
-            newsAdapter.differ.submitList(articles)
+        viewModel.getSavedNews().observe(viewLifecycleOwner, Observer { articles ->
+            if (articles.isNotEmpty()) {
+                Log.e("TAG", articles.toString())
+                rvSavedNews.visibility = View.VISIBLE
+                newsAdapter.differ.submitList(articles)
+                noItemLayout.visibility = View.GONE
+            } else {
+                noItemLayout.visibility = View.VISIBLE
+            }
 
         })
     }
