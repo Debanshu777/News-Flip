@@ -2,6 +2,7 @@ package com.debanshu777.newsapp.onboarding.screens
 
 import android.content.Context
 import android.os.Bundle
+import android.os.Handler
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -29,10 +30,14 @@ class OnboardingFragment3 : Fragment() {
                 return@setOnClickListener
             }
             GlobalScope.launch {
-                UserPreferences.setValue(requireContext(), "testKey", text)
+                UserPreferences.setValue(requireContext(), "nameKey", text)
             }
             view.enter.hideKeyboard()
-            findNavController().navigate(R.id.action_viewPagerFragment_to_breakingNewsFragment)
+            val handler = Handler()
+            handler.postDelayed(
+                Runnable { findNavController().navigate(R.id.action_viewPagerFragment_to_breakingNewsFragment) },
+                800
+            )
         }
 
         return view

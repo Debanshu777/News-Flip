@@ -36,14 +36,14 @@ class BreakingNewsFragment : Fragment(R.layout.fragment_breaking_news) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         lifecycleScope.launch {
-            val value = UserPreferences.getValue(requireContext(), "testKey", default = "123")
+            val value = UserPreferences.getValue(requireContext(), "nameKey", default = "123")
             Log.e("TAG", "Here$value")
             if (value == "123") {
                 (activity as NewsActivity).hideBottomNav()
                 findNavController().navigate(R.id.action_breakingNewsFragment_to_viewPagerFragment)
             } else {
                 (activity as NewsActivity).showBottomNav()
-                var name = "Hey, $value!"
+                val name = "Hey, $value!"
                 nameSet.text = name
             }
         }

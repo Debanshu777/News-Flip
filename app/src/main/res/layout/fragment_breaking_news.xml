@@ -44,7 +44,7 @@
         <FrameLayout
             android:id="@+id/frameLayout3"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="220dp"
             android:layout_marginTop="20dp"
             app:layout_constraintBottom_toTopOf="@id/topicHeader"
             app:layout_constraintEnd_toEndOf="parent"
@@ -54,9 +54,9 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvBreakingNews"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:clipToPadding="false"
-                android:paddingStart="18dp"
+                android:paddingStart="15dp"
                 tools:listitem="@layout/item_breaking_news" />
         </FrameLayout>
 
@@ -98,7 +98,7 @@
         <FrameLayout
             android:id="@+id/frameLayout2"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -107,7 +107,7 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvOptionNews"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:clipToPadding="false"
                 android:padding="5dp"
                 tools:listitem="@layout/item_article_preview" />
@@ -126,7 +126,7 @@
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"
             android:visibility="invisible"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toBottomOf="@+id/frameLayout"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

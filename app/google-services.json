@@ -1,0 +1,77 @@
+{
+  "project_info": {
+    "project_number": "114398630504",
+    "firebase_url": "https://mocall-skype-clone.firebaseio.com",
+    "project_id": "mocall-skype-clone",
+    "storage_bucket": "mocall-skype-clone.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:114398630504:android:ad28d3c6a39683b0a4a1dd",
+        "android_client_info": {
+          "package_name": "com.debanshu777.newsapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "114398630504-32qc76j10hlmc0agqssa7bde4ksd0onq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBc2QUlmCiRIvTjGezQGeRqkzyas6TvPko"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "114398630504-32qc76j10hlmc0agqssa7bde4ksd0onq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:114398630504:android:b239ce8008327bf9a4a1dd",
+        "android_client_info": {
+          "package_name": "com.example.mocall"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "114398630504-b18q52pju7gnj1hhpn7hkktra472t9e0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.mocall",
+            "certificate_hash": "24dc74eef9cba8aadef338bdf9ba34afa452be9d"
+          }
+        },
+        {
+          "client_id": "114398630504-32qc76j10hlmc0agqssa7bde4ksd0onq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBc2QUlmCiRIvTjGezQGeRqkzyas6TvPko"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "114398630504-32qc76j10hlmc0agqssa7bde4ksd0onq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

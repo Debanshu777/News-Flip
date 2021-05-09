@@ -65,10 +65,11 @@ class SaveNewsFragment : Fragment(R.layout.fragment_saved_news) {
                 if (articles.isNotEmpty()) {
                     Log.e("TAG", articles.toString())
                     rvSavedNews.visibility = View.VISIBLE
-                    newsAdapter.differ.submitList(articles)
                     noItemLayout.visibility = View.GONE
+                    newsAdapter.differ.submitList(articles)
                 } else {
                     noItemLayout.visibility = View.VISIBLE
+                    rvSavedNews.visibility = View.GONE
                 }
             }
         )
