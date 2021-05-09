@@ -1,10 +1,9 @@
 package com.debanshu777.newsapp.ui
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.debanshu777.newsapp.R
@@ -20,18 +19,18 @@ class NewsActivity : AppCompatActivity() {
         setTheme(R.style.AppTheme)
         setContentView(R.layout.activity_news)
 
-
-        val newsRepository=NewsRepository(ArticleDatabase(this))
-        val viewModelProviderFactory=NewsViewModelProviderFactory(application,newsRepository)
-        viewModel=ViewModelProvider(this,viewModelProviderFactory).get(NewsViewModel::class.java)
+        val newsRepository = NewsRepository(ArticleDatabase(this))
+        val viewModelProviderFactory = NewsViewModelProviderFactory(application, newsRepository)
+        viewModel = ViewModelProvider(this, viewModelProviderFactory).get(NewsViewModel::class.java)
 
         bottomNavigationView.setupWithNavController(newsNaveHostFragment.findNavController())
+    }
 
+    fun hideBottomNav() {
+        bottomNavigationView.visibility = View.GONE
     }
-    fun hideBottomNav(){
-        bottomNavigationView.visibility= View.GONE
-    }
-    fun showBottomNav(){
-        bottomNavigationView.visibility= View.VISIBLE
+
+    fun showBottomNav() {
+        bottomNavigationView.visibility = View.VISIBLE
     }
 }

@@ -16,14 +16,15 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
 class OnboardingFragment3 : Fragment() {
-        override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        val view= inflater.inflate(R.layout.fragment_onboarding3, container, false)
+        val view = inflater.inflate(R.layout.fragment_onboarding3, container, false)
         view.enter.setOnClickListener {
-            val text=view.editText.text.toString().trim()
+            val text = view.editText.text.toString().trim()
             if (text == "") {
                 return@setOnClickListener
             }

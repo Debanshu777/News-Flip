@@ -3,6 +3,7 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 apply plugin: "androidx.navigation.safeargs.kotlin"
+apply plugin: "org.jlleitschuh.gradle.ktlint"
 
 android {
     compileSdkVersion 30
@@ -62,7 +63,7 @@ dependencies {
     implementation "androidx.room:room-ktx:2.3.0"
 
     // Coroutines
-    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.2'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.3'
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.4.2'
 
     // Coroutine Lifecycle Scopes
@@ -96,4 +97,8 @@ dependencies {
 
     //lottie animations
     implementation 'com.airbnb.android:lottie:3.7.0'
+
+
+    // debugImplementation because LeakCanary should only run in debug builds.
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.7'
 }

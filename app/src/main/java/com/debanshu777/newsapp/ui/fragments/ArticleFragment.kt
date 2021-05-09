@@ -1,17 +1,13 @@
 package com.debanshu777.newsapp.ui.fragments
 
 import android.graphics.Bitmap
-import android.os.Build
 import android.os.Bundle
 import android.view.View
-import android.webkit.*
-import androidx.annotation.RequiresApi
+import android.webkit.WebViewClient
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
 import androidx.webkit.WebSettingsCompat
 import androidx.webkit.WebViewFeature
-import com.bumptech.glide.Glide
-import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.debanshu777.newsapp.R
 import com.debanshu777.newsapp.ui.NewsActivity
 import com.debanshu777.newsapp.ui.NewsViewModel
@@ -20,63 +16,61 @@ import kotlinx.android.synthetic.main.fragment_article.*
 import java.io.ByteArrayInputStream
 import java.io.ByteArrayOutputStream
 import java.io.InputStream
-import java.util.*
 
-
-class ArticleFragment:Fragment(R.layout.fragment_article){
+class ArticleFragment : Fragment(R.layout.fragment_article) {
 
     private fun getClient(): WebViewClient {
         return object : WebViewClient() {
-            override fun shouldInterceptRequest(
-                view: WebView,
-                request: WebResourceRequest
-            ): WebResourceResponse? {
-                return super.shouldInterceptRequest(view, request)
-            }
 
-
-            @RequiresApi(Build.VERSION_CODES.R)
-            override fun shouldInterceptRequest(view: WebView?, url: String?): WebResourceResponse? {
-                if(url == null){
-                    return null
-                }
-                return if(url.toLowerCase(Locale.ROOT).contains(".jpg") || url.toLowerCase(Locale.ROOT).contains(
-                        ".jpeg"
-                    )){
-                    val bitmap = Glide.with(webView).asBitmap().diskCacheStrategy(DiskCacheStrategy.ALL).load(
-                        url
-                    ).submit().get()
-                    WebResourceResponse(
-                        "image/jpg", "UTF-8", getBitmapInputStream(
-                            bitmap,
-                            Bitmap.CompressFormat.JPEG
-                        )
-                    )
-                }else if(url.toLowerCase(Locale.ROOT).contains(".png")){
-                    val bitmap = Glide.with(webView).asBitmap().diskCacheStrategy(DiskCacheStrategy.ALL).load(
-                        url
-                    ).submit().get()
-                    WebResourceResponse(
-                        "image/png", "UTF-8", getBitmapInputStream(
-                            bitmap,
-                            Bitmap.CompressFormat.PNG
-                        )
-                    )
-                }else if(url.toLowerCase(Locale.ROOT).contains(".webp")){
-                    val bitmap = Glide.with(webView).asBitmap().diskCacheStrategy(DiskCacheStrategy.ALL).load(
-                        url
-                    ).submit().get()
-                    WebResourceResponse(
-                        "image/webp", "UTF-8", getBitmapInputStream(
-                            bitmap,
-                            Bitmap.CompressFormat.WEBP_LOSSY
-                        )
-                    )
-                }else{
-                    return null
-                }
-
-            }
+//            @RequiresApi(Build.VERSION_CODES.R)
+//            override fun shouldInterceptRequest(view: WebView?, url: String?): WebResourceResponse? {
+//                if(url == null){
+//                    return null
+//                }
+//                return if(url.toLowerCase(Locale.ROOT).contains(".jpg") || url.toLowerCase(Locale.ROOT).contains(
+//                        ".jpeg"
+//                    )){
+//                    val bitmap = Glide.with(webView).asBitmap()
+//                        .error(R.drawable.placeholder_image_logo)
+//                        .diskCacheStrategy(DiskCacheStrategy.ALL).load(
+//                        url
+//                    ).submit().get()
+//                    WebResourceResponse(
+//                        "image/jpg", "UTF-8", getBitmapInputStream(
+//                            bitmap,
+//                            Bitmap.CompressFormat.JPEG
+//                        )
+//                    )
+//                }else if(url.toLowerCase(Locale.ROOT).contains(".png")){
+//                    val bitmap = Glide.with(webView).asBitmap()
+//                        .error(R.drawable.placeholder_image_logo)
+//                        .diskCacheStrategy(DiskCacheStrategy.ALL).load(
+//                        url
+//                    ).submit()
+//                     .get()
+//                    WebResourceResponse(
+//                        "image/png", "UTF-8", getBitmapInputStream(
+//                            bitmap,
+//                            Bitmap.CompressFormat.PNG
+//                        )
+//                    )
+//                }else if(url.toLowerCase(Locale.ROOT).contains(".webp")){
+//                    val bitmap = Glide.with(webView).asBitmap()
+//                        .error(R.drawable.placeholder_image_logo)
+//                        .diskCacheStrategy(DiskCacheStrategy.ALL).load(
+//                        url
+//                    ).submit().get()
+//                    WebResourceResponse(
+//                        "image/webp", "UTF-8", getBitmapInputStream(
+//                            bitmap,
+//                            Bitmap.CompressFormat.WEBP_LOSSY
+//                        )
+//                    )
+//                }else{
+//                    return null
+//                }
+//
+//            }
         }
     }
 
@@ -88,12 +82,12 @@ class ArticleFragment:Fragment(R.layout.fragment_article){
     }
 
     lateinit var viewModel: NewsViewModel
-    private val args:ArticleFragmentArgs by navArgs()
+    private val args: ArticleFragmentArgs by navArgs()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel=(activity as NewsActivity).viewModel
-        val article=args.article
+        viewModel = (activity as NewsActivity).viewModel
+        val article = args.article
         if (WebViewFeature.isFeatureSupported(WebViewFeature.FORCE_DARK)) {
             WebSettingsCompat.setForceDark(
                 webView.settings,
@@ -101,12 +95,11 @@ class ArticleFragment:Fragment(R.layout.fragment_article){
             )
         }
 
-
         webView.apply {
-            webViewClient= getClient()
+            webViewClient = getClient()
             loadUrl(article.url)
         }
-        fab.setOnClickListener{
+        fab.setOnClickListener {
             viewModel.saveArticle(article)
             Snackbar.make(view, "News Saved", Snackbar.LENGTH_LONG).show()
         }
