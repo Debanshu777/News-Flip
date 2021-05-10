@@ -7,8 +7,6 @@
     tools:context=".onboarding.ViewPagerFragment">
 
 
-
-
     <com.cuberto.liquid_swipe.LiquidPager
         android:id="@+id/viewPager"
         android:layout_width="match_parent"

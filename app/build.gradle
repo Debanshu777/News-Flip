@@ -6,6 +6,7 @@ apply plugin: "androidx.navigation.safeargs.kotlin"
 apply plugin: "org.jlleitschuh.gradle.ktlint"
 apply plugin: 'com.google.gms.google-services'
 apply plugin: 'com.google.firebase.crashlytics'
+apply plugin: 'com.google.firebase.firebase-perf'
 
 android {
     compileSdkVersion 30
@@ -113,7 +114,9 @@ dependencies {
     implementation platform('com.google.firebase:firebase-bom:27.1.0')
 
     // Declare the dependencies for the Crashlytics and Analytics libraries
-    // When using the BoM, you don't specify versions in Firebase library dependencies
     implementation 'com.google.firebase:firebase-crashlytics-ktx'
     implementation 'com.google.firebase:firebase-analytics-ktx'
+
+    // Declare the dependency for the Performance Monitoring library
+    implementation 'com.google.firebase:firebase-perf-ktx'
 }

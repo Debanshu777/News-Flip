@@ -2,7 +2,6 @@ package com.debanshu777.newsapp.onboarding.screens
 
 import android.content.Context
 import android.os.Bundle
-import android.os.Handler
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,7 +13,9 @@ import com.debanshu777.newsapp.util.UserPreferences
 import kotlinx.android.synthetic.main.fragment_onboarding3.*
 import kotlinx.android.synthetic.main.fragment_onboarding3.view.*
 import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 
 class OnboardingFragment3 : Fragment() {
     override fun onCreateView(
@@ -33,11 +34,10 @@ class OnboardingFragment3 : Fragment() {
                 UserPreferences.setValue(requireContext(), "nameKey", text)
             }
             view.enter.hideKeyboard()
-            val handler = Handler()
-            handler.postDelayed(
-                Runnable { findNavController().navigate(R.id.action_viewPagerFragment_to_breakingNewsFragment) },
-                800
-            )
+            runBlocking {
+                delay(1200)
+            }
+            findNavController().navigate(R.id.action_viewPagerFragment_to_breakingNewsFragment)
         }
 
         return view
