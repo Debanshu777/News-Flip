@@ -108,7 +108,7 @@ dependencies {
 
 
     // debugImplementation because LeakCanary should only run in debug builds.
-    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.7'
+    //debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.7'
 
     //Firebase
     implementation platform('com.google.firebase:firebase-bom:27.1.0')
