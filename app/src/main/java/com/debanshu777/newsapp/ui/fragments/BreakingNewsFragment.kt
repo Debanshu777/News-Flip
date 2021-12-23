@@ -222,7 +222,8 @@ class BreakingNewsFragment : Fragment(R.layout.fragment_breaking_news) {
                 "Technology"
             )
         )
-        Log.e("Tag", list.size.toString())
+        Log.e("Tag",
+            list.size.toString())
         return list
     }
 

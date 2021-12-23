@@ -13,10 +13,10 @@
         android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:usesCleartextTraffic="true">
-        <activity android:name="com.debanshu777.newsapp.ui.NewsActivity">
+        <activity android:name="com.debanshu777.newsapp.ui.NewsActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
