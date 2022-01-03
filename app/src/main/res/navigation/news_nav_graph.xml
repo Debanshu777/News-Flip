@@ -8,7 +8,7 @@
 
     <fragment
         android:id="@+id/breakingNewsFragment"
-        android:name="com.debanshu777.newsapp.ui.fragments.BreakingNewsFragment"
+        android:name="com.debanshu777.newsFlix.ui.fragments.BreakingNewsFragment"
         android:label="BreakingNewsFragment">
         <action
             android:id="@+id/action_breakingNewsFragment_to_articleFragment"
@@ -23,7 +23,7 @@
     </fragment>
     <fragment
         android:id="@+id/searchNewsFragment"
-        android:name="com.debanshu777.newsapp.ui.fragments.SearchNewsFragment"
+        android:name="com.debanshu777.newsFlix.ui.fragments.SearchNewsFragment"
         android:label="SearchNewsFragment">
         <action
             android:id="@+id/action_searchNewsFragment_to_articleFragment"
@@ -35,7 +35,7 @@
     </fragment>
     <fragment
         android:id="@+id/savedNewsFragment"
-        android:name="com.debanshu777.newsapp.ui.fragments.SaveNewsFragment"
+        android:name="com.debanshu777.newsFlix.ui.fragments.SaveNewsFragment"
         android:label="SaveNewsFragment">
         <action
             android:id="@+id/action_saveNewsFragment_to_articleFragment"
@@ -47,7 +47,7 @@
     </fragment>
     <fragment
         android:id="@+id/articleFragment"
-        android:name="com.debanshu777.newsapp.ui.fragments.ArticleFragment"
+        android:name="com.debanshu777.newsFlix.ui.fragments.ArticleFragment"
         android:label="ArticleFragment"
         app:enterAnim="@anim/slide_in_right"
         app:exitAnim="@anim/slide_out_left"
@@ -59,7 +59,7 @@
     </fragment>
     <fragment
         android:id="@+id/viewPagerFragment"
-        android:name="com.debanshu777.newsapp.ui.onboarding.ViewPagerFragment"
+        android:name="com.debanshu777.newsFlix.ui.onboarding.ViewPagerFragment"
         android:label="fragment_view_pager"
         tools:layout="@layout/fragment_view_pager" >
         <action

@@ -13,7 +13,7 @@ android {
     buildToolsVersion "29.0.3"
 
     defaultConfig {
-        applicationId "com.debanshu777.newsapp"
+        applicationId "com.debanshu777.newsFlix"
         minSdkVersion 24
         targetSdkVersion 31
         versionCode 1
