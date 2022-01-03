@@ -59,7 +59,7 @@
     </fragment>
     <fragment
         android:id="@+id/viewPagerFragment"
-        android:name="com.debanshu777.newsapp.onboarding.ViewPagerFragment"
+        android:name="com.debanshu777.newsapp.ui.onboarding.ViewPagerFragment"
         android:label="fragment_view_pager"
         tools:layout="@layout/fragment_view_pager" >
         <action

@@ -1,4 +1,4 @@
-package com.debanshu777.newsapp.onboarding.screens
+package com.debanshu777.newsapp.ui.onboarding.screens
 
 import android.content.Context
 import android.os.Bundle

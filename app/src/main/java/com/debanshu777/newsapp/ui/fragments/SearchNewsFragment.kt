@@ -12,7 +12,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.debanshu777.newsapp.R
-import com.debanshu777.newsapp.adapters.NewsAdapter
+import com.debanshu777.newsapp.ui.adapters.NewsAdapter
 import com.debanshu777.newsapp.ui.NewsActivity
 import com.debanshu777.newsapp.ui.NewsViewModel
 import com.debanshu777.newsapp.util.Constant

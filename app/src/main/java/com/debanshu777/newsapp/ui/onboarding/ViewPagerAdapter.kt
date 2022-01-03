@@ -1,4 +1,4 @@
-package com.debanshu777.newsapp.onboarding
+package com.debanshu777.newsapp.ui.onboarding
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager

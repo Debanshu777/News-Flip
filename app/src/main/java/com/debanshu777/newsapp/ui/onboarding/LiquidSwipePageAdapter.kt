@@ -1,11 +1,11 @@
-package com.debanshu777.newsapp.onboarding
+package com.debanshu777.newsapp.ui.onboarding
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentStatePagerAdapter
-import com.debanshu777.newsapp.onboarding.screens.OnboardingFragment1
-import com.debanshu777.newsapp.onboarding.screens.OnboardingFragment2
-import com.debanshu777.newsapp.onboarding.screens.OnboardingFragment3
+import com.debanshu777.newsapp.ui.onboarding.screens.OnboardingFragment1
+import com.debanshu777.newsapp.ui.onboarding.screens.OnboardingFragment2
+import com.debanshu777.newsapp.ui.onboarding.screens.OnboardingFragment3
 
 class LiquidSwipePageAdapter(fm: FragmentManager, behaviour: Int) :
     FragmentStatePagerAdapter(fm, behaviour) {

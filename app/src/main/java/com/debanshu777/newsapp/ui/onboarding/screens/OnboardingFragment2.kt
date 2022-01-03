@@ -1,4 +1,4 @@
-package com.debanshu777.newsapp.onboarding.screens
+package com.debanshu777.newsapp.ui.onboarding.screens
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.debanshu777.newsapp.R
 
-class OnboardingFragment1 : Fragment() {
+class OnboardingFragment2 : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -15,6 +15,6 @@ class OnboardingFragment1 : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_onboarding1, container, false)
+        return inflater.inflate(R.layout.fragment_onboarding2, container, false)
     }
 }
