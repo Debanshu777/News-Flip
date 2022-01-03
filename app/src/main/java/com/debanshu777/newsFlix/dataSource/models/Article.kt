@@ -1,4 +1,4 @@
-package com.debanshu777.newsFlix.models
+package com.debanshu777.newsFlix.dataSource.models
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

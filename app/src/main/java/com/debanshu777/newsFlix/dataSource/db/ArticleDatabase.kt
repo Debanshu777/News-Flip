@@ -1,11 +1,11 @@
-package com.debanshu777.newsFlix.db
+package com.debanshu777.newsFlix.dataSource.db
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
-import com.debanshu777.newsFlix.models.Article
+import com.debanshu777.newsFlix.dataSource.models.Article
 
 @Database(entities = [Article::class], version = 1)
 @TypeConverters(Converter::class)

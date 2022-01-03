@@ -1,7 +1,7 @@
-package com.debanshu777.newsFlix.db
+package com.debanshu777.newsFlix.dataSource.db
 
 import androidx.room.TypeConverter
-import com.debanshu777.newsFlix.models.Source
+import com.debanshu777.newsFlix.dataSource.models.Source
 
 class Converter {
     @TypeConverter

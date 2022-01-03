@@ -14,9 +14,9 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.debanshu777.newsFlix.NewsApplication
-import com.debanshu777.newsFlix.models.Article
-import com.debanshu777.newsFlix.models.NewsResponse
-import com.debanshu777.newsFlix.repository.NewsRepository
+import com.debanshu777.newsFlix.dataSource.models.Article
+import com.debanshu777.newsFlix.dataSource.models.NewsResponse
+import com.debanshu777.newsFlix.dataSource.repository.NewsRepository
 import com.debanshu777.newsFlix.util.Resource
 import kotlinx.coroutines.launch
 import retrofit2.Response

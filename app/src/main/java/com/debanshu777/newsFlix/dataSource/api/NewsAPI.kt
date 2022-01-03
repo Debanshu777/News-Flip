@@ -1,6 +1,6 @@
-package com.debanshu777.newsFlix.api
+package com.debanshu777.newsFlix.dataSource.api
 
-import com.debanshu777.newsFlix.models.NewsResponse
+import com.debanshu777.newsFlix.dataSource.models.NewsResponse
 import com.debanshu777.newsFlix.util.Constant.Companion.API_KEY
 import retrofit2.Response
 import retrofit2.http.GET

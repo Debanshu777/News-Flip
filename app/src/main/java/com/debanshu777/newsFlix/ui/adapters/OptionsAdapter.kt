@@ -10,7 +10,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.RequestOptions
 import com.debanshu777.newsFlix.R
-import com.debanshu777.newsFlix.models.Option
+import com.debanshu777.newsFlix.dataSource.models.Option
 import kotlinx.android.synthetic.main.top_option_items.view.*
 
 class OptionsAdapter(private val list: ArrayList<Option>) : RecyclerView.Adapter<OptionsAdapter.OptionsViewHolder>() {

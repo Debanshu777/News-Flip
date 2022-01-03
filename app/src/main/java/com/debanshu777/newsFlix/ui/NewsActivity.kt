@@ -7,8 +7,8 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.debanshu777.newsFlix.R
-import com.debanshu777.newsFlix.db.ArticleDatabase
-import com.debanshu777.newsFlix.repository.NewsRepository
+import com.debanshu777.newsFlix.dataSource.db.ArticleDatabase
+import com.debanshu777.newsFlix.dataSource.repository.NewsRepository
 import kotlinx.android.synthetic.main.activity_news.*
 
 class NewsActivity : AppCompatActivity() {

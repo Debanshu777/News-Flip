@@ -1,4 +1,4 @@
-package com.debanshu777.newsFlix.db
+package com.debanshu777.newsFlix.dataSource.db
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao
@@ -6,7 +6,7 @@ import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.debanshu777.newsFlix.models.Article
+import com.debanshu777.newsFlix.dataSource.models.Article
 
 @Dao
 interface ArticleDao {

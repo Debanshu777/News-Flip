@@ -1,8 +1,8 @@
-package com.debanshu777.newsFlix.repository
+package com.debanshu777.newsFlix.dataSource.repository
 
-import com.debanshu777.newsFlix.api.RetrofitInstance
-import com.debanshu777.newsFlix.db.ArticleDatabase
-import com.debanshu777.newsFlix.models.Article
+import com.debanshu777.newsFlix.dataSource.api.RetrofitInstance
+import com.debanshu777.newsFlix.dataSource.db.ArticleDatabase
+import com.debanshu777.newsFlix.dataSource.models.Article
 
 class NewsRepository(
     private val db: ArticleDatabase

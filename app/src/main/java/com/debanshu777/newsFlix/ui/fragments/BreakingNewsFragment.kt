@@ -15,7 +15,7 @@ import com.debanshu777.newsFlix.R
 import com.debanshu777.newsFlix.ui.adapters.BreakingNewsAdapter
 import com.debanshu777.newsFlix.ui.adapters.NewsAdapter
 import com.debanshu777.newsFlix.ui.adapters.OptionsAdapter
-import com.debanshu777.newsFlix.models.Option
+import com.debanshu777.newsFlix.dataSource.models.Option
 import com.debanshu777.newsFlix.ui.NewsActivity
 import com.debanshu777.newsFlix.ui.NewsViewModel
 import com.debanshu777.newsFlix.util.Constant.Companion.QUERY_PAGE_SIZE

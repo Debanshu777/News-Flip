@@ -1,4 +1,4 @@
-package com.debanshu777.newsFlix.api
+package com.debanshu777.newsFlix.dataSource.api
 
 import com.debanshu777.newsFlix.util.Constant.Companion.BASE_URL
 import okhttp3.OkHttpClient

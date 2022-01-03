@@ -1,4 +1,4 @@
-package com.debanshu777.newsFlix.models
+package com.debanshu777.newsFlix.dataSource.models
 
 data class NewsResponse(
     val articles: MutableList<Article>,
